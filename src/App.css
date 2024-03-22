@@ -1,0 +1,407 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+h1{
+  text-align: center;
+}
+
+a {
+  color: rgb(26, 88, 232);
+  text-decoration: underline; 
+  cursor: pointer; 
+}
+
+.sombreado  {
+  font-weight: bold;
+}
+
+
+.tareas-container {
+  display: flex; 
+  flex-direction: column; 
+  margin: 0;
+  padding: 20px;
+  background-color: #f7f7f7;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 100%;
+}
+
+
+.tareas-form {
+  display: flex;
+  justify-content: flex-end; 
+  margin-bottom: 20px;
+}
+
+.tareas-form input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.tareas-form .agregar {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filtros {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.por-estado {
+  margin-right: 20px; 
+}
+
+.por-filtro {
+  margin-left: 20px; 
+}
+
+.filtros label {
+  margin-right: 10px;
+}
+
+.filtros select {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.lista-tareas {
+  list-style: none;
+  padding: 0;
+}
+
+
+.mensaje-vacio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+  height: 100%; 
+}
+
+.mensaje-vacio p {
+  text-align: center; 
+  font-size: large;
+}
+
+.alerta{
+  color:rgb(255, 201, 24);
+  font-size:x-large;
+}
+
+
+.tarjeta-tarea {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.tarjeta-tarea.completada {
+  background-color: #d3ffd9;
+}
+
+.tarjeta-tarea h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.info-tarea{
+  padding: 30px ;
+}
+
+.estado-tarea {
+  position: absolute;
+  top: 50%; 
+  transform: translateY(-50%); 
+  right: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.estado-tarea.completada {
+  background-color: #4caf50;
+  color: white;
+}
+
+.estado-tarea.pendiente {
+  background-color: #f44336;
+  color: white;
+}
+
+.acciones {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.acciones button {
+  margin-left: 5px;
+  padding: 8px 16px;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.acciones .eliminar , .acciones .editar {
+  color: #808080; 
+  transform: scale(1.5);
+}
+
+.acciones .editar:hover {
+  color: #ffc402 !important; 
+}
+
+.acciones .eliminar:hover {
+  color: #ff0000 !important; 
+}
+
+
+input[type="checkbox"] {
+  transform: scale(1.5);
+  margin-right: 10px;
+}
+
+
+/* MODAL */
+.modal {
+  display: none;
+  justify-content: center;
+  align-items: center; 
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal.mostrar {
+  display: flex;
+}
+
+.modal-contenido {
+  background-color: #fefefe;
+  margin: 15%;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.cerrar {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.cerrar:hover,
+.cerrar:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.campo-formulario {
+  margin-bottom: 20px;
+}
+
+
+.campo-formulario input[type="text"],
+.campo-formulario select,
+.campo-formulario textarea {
+  width: calc(100% - 22px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px; 
+}
+
+.campo-formulario select {
+  width: calc(100%);
+}
+
+.campo-formulario textarea {
+  height: 100px;
+}
+
+.modal-contenido button {
+  background-color: #4caf50;
+  width: 100%;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.tareas-form button:hover , .modal-contenido button:hover {
+  background-color: #67b96b;
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: #fff;
+  color: #333;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-title {
+  font-size: 1.5rem;
+}
+
+.navbar-icons {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-icon {
+  font-size: 1.2rem;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.navbar-icon:hover {
+  color: #ffc107; 
+}
+
+
+/* DARK MODE */
+.navbar.dark {
+  background-color: #000000;
+  color: #fff;
+}
+
+
+.tareas-container{
+  min-height: 100vh;
+}
+
+.tareas-container.dark{
+  background-color: #333;
+  color: #fff;
+}
+
+.modal-contenido.dark {
+  background-color: #333;
+  color: #fff;
+}
+
+.lista-tareas.dark li {
+  background-color: #575757;
+  color: #fff;
+}
+
+
+.lista-tareas.dark .tarjeta-tarea.completada {
+  background-color: #6c8b70;
+}
+
+
+.lista-tareas.dark .acciones .eliminar ,.lista-tareas.dark .acciones .editar {
+  color: #fff; 
+  transform: scale(1.5);
+}
+
+/* Login */
+.login-body {
+  background-color: #d9ead3;
+  height: 100vh;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+
+.container {
+  background-color: #e6f3e6 ;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-container {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.input-container p {
+  margin: 0;
+}
+
+.input-container input {
+  min-width: 300px;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.loading svg {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.container button[type="submit"] {
+  background-color: #4caf50; 
+  width: 100%;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.password-input {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
